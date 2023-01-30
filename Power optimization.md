@@ -82,6 +82,6 @@ it needs to sleep and wake-up in correct sequence therefore to power OFF sequenc
 
 
 
-##References:
- Principles of VLSI RTL Design 
-The Art of Hardware Architecture 
+## References:
+ - Principles of VLSI RTL Design 
+ - The Art of Hardware Architecture 
