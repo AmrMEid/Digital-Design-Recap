@@ -1,5 +1,3 @@
-
-
 Power consumption became more critical in modern designs. modern designs demand a more functions and this leads to more transistors in same area. Two problems appear in this point. 
 
 Junction temperature: more transistors mean more power consumption and more heat, increasing the junction temperature degrades the performance of all system. 
@@ -9,14 +7,7 @@ Battery life: which affects significantly on user experience.
 Power Types:
 The power consumption comes from 3 main sources:
 
-
-
-
-
-
-
-Add alt text
-No alt text provided for this image
+![Asset 1-100](https://user-images.githubusercontent.com/43087648/215607341-52675896-03f1-46d4-b8f1-194c23492390.jpg)
 
 
 Switching power: this due to charging and discharging of the output node capacitor when changing the output value.
