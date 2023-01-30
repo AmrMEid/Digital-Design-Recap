@@ -1,6 +1,7 @@
 Power consumption became more critical in modern designs. modern designs demand a more functions and this leads to more transistors in same area. Two problems appear in this point. 
 
 **Junction temperature:** more transistors mean more power consumption and more heat, increasing the junction temperature degrades the performance of all system.
+
 **Battery life:** which affects significantly on user experience.
 
 
