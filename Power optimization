@@ -9,7 +9,6 @@ The power consumption comes from 3 main sources:
 
 ![Asset 1-100](https://user-images.githubusercontent.com/43087648/215607341-52675896-03f1-46d4-b8f1-194c23492390.jpg)
 
-
 Switching power: this due to charging and discharging of the output node capacitor when changing the output value.
 Short circuit power: this happens when PMOS and NMOS are both ON and current flows from VDD to GND. this happen when the input voltage in the midrange between 1 and 0. this is a real problem if the slew rate of input signal is very slow. 
 Leakage power: even if the output node is unchanged. still some current flows in the CMOS gates in the reversed junction. leakage power dominates in the new technologies. 
