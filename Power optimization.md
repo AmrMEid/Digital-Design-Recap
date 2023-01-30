@@ -26,9 +26,12 @@ The power consumption comes from 3 main sources:
 
 
 There are different factors to control the power consumption:
-![1674231098168](https://user-images.githubusercontent.com/43087648/215612354-ccc786d2-1418-49fa-91a6-13d1800d0953.png)
+<p align="center">
+  <img width="440" height="133" src="https://user-images.githubusercontent.com/43087648/215612354-ccc786d2-1418-49fa-91a6-13d1800d0953.png">
+</p>
 
 - **Switching rate:** it is the probability of switching from 0 to 1 or vice versa for the given node in every CLK cycle. This factor affects the active power.
+
 ![1674232085918](https://user-images.githubusercontent.com/43087648/215612417-2070293e-fedd-4548-bc67-0d4ccdf71473.png)
  
 - **Capacitance:** capacitive load of the output node which is the sum of the load from the next gate and the connection load. 
@@ -51,10 +54,13 @@ There are different methods to enhance the results of power consumption and thes
 
 6. **Clock gating:** even if input to D-FF not changing still the switching on CLK input for the FF will consume power in the internal circuit of the FF. the closer the CLK gating circuit to the CLK source the more power saving done. because the most of dynamic power is dissipated in the high drive strength buffers in the CLK tree and have the most toggling rate. CLK gating circuit adds more area and power consumption of the latch and the and gate therefore it must be used only when enable circuit is expected to be low must of time. 
 ![Asset 4-100](https://user-images.githubusercontent.com/43087648/215612624-ed656db1-fcb5-45df-9c31-b3b7083cfcbb.jpg)
+
 ![Asset 5-100](https://user-images.githubusercontent.com/43087648/215612677-6a3129b6-6784-49d6-b312-c1165f8b55e5.jpg)
 
 7. **Reducing VDD:** reducing VDD is powerful method because voltage is dominated in power formula. but decreasing the VDD will degrade the performance because it increases the gate delays. then it should be not used in critical paths circuits. also decreasing the voltage source needs to decreasing Vth which increasing the leakage power. this method is only effective when large voltage headroom.
-Power gating: the most effective method to reduce the leakage power is selective shutdown for the unneeded modules. 
+8. **Power gating:** the most effective method to reduce the leakage power is selective shutdown for the unneeded modules. 
+
+
 ![Asset 6-100](https://user-images.githubusercontent.com/43087648/215612725-b437bf90-1020-4921-893a-57f188c5cd17.jpg)
 
 it requires isolation cells between different power domains to avoid floating inputs for the next modules when power domain is OFF. PEn signal should be generated from always on circuit.
@@ -65,14 +71,17 @@ Sleep and wakeup times must be calculated, and these are overhead on the perform
 
 it needs to sleep and wake-up in correct sequence therefore to power OFF sequence (Stop clock -> Apply isolation -> save state -> apply reset -> power OFF). power ON sequence (Power on ->de-assert reset -> restore the state -> disable the isolation -> enable the clk) . 
 
-8. **Decrease memory supply:** when it is not used, RAMs can't be powered OFF because it is a volatile memory. therefore, to decrease the leakage power it is recommended to reduce the supply (low Volt -> low leakage -> large delay).    
-9. **Switching input pins:** connect the high activity net with the lower power consumption input:
-10. **Using buffers:** to increase the drive strength (reducing the short circuit time) instead of sizing up the gates.
-11. **Different Vth:** using high Vth gates to reduce the leakage power in the non-critical paths to maintain the timing results.
+9. **Decrease memory supply:** when it is not used, RAMs can't be powered OFF because it is a volatile memory. therefore, to decrease the leakage power it is recommended to reduce the supply (low Volt -> low leakage -> large delay).    
+10. **Switching input pins:** connect the high activity net with the lower power consumption input:
+11. **Using buffers:** to increase the drive strength (reducing the short circuit time) instead of sizing up the gates.
+12. **Different Vth:** using high Vth gates to reduce the leakage power in the non-critical paths to maintain the timing results.
 
 
 
 
-**References:** 
+
+
+
+##References:
  Principles of VLSI RTL Design 
 The Art of Hardware Architecture 
