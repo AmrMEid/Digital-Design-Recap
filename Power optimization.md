@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="720" height="370" src="https://user-images.githubusercontent.com/43087648/216158688-fc523bc4-9163-4948-9548-ac18cc4fd22b.jpg">
+</p>
+
 Power consumption became more critical in modern designs. modern designs demand a more functions and this leads to more transistors in same area. Two problems appear in this point. 
 
 **Junction temperature:** more transistors mean more power consumption and more heat, increasing the junction temperature degrades the performance of all system.
@@ -7,8 +11,9 @@ Power consumption became more critical in modern designs. modern designs demand 
 
 ## Power Types:
 The power consumption comes from 3 main sources:
-
-![Asset 1-100](https://user-images.githubusercontent.com/43087648/215611989-20a137ef-839c-4522-bd95-6c96d11663e0.jpg)
+<p align="center">
+  <img width="360" height="520" src="https://user-images.githubusercontent.com/43087648/215611989-20a137ef-839c-4522-bd95-6c96d11663e0.jpg">
+</p>
 
 - **Switching power:** this due to charging and discharging of the output node capacitor when changing the output value.
 
@@ -32,8 +37,9 @@ There are different factors to control the power consumption:
 </p>
 
 - **Switching rate:** it is the probability of switching from 0 to 1 or vice versa for the given node in every CLK cycle. This factor affects the active power.
-
-![1674232085918](https://user-images.githubusercontent.com/43087648/215612417-2070293e-fedd-4548-bc67-0d4ccdf71473.png)
+<p align="center">
+  <img width="600" height="260" src="https://user-images.githubusercontent.com/43087648/215612417-2070293e-fedd-4548-bc67-0d4ccdf71473.png">
+</p>
  
 - **Capacitance:** capacitive load of the output node which is the sum of the load from the next gate and the connection load. 
 - **Voltage:** higher voltage means more current flows from source to the GND.
@@ -45,24 +51,31 @@ There are different methods to enhance the results of power consumption and thes
 
 1. **Optimizing the data flow:** in modern accelerators the data flows is a famous methos to reduce the switching power and increasing the reuse of operands to avoid computational and memory accessing power.
 2. **Dynamic frequency:** reduce the frequency of the cores when executing non-timing critical task.
-3. **Power islands:** partition the design to power islands depends on the performance requirement of each partition. this can significantly reduce the power consumption of non-critical modules. This needs to level shifters to shift up or shift down the shared signals to pass the noise range to avoid the short circuit current flow. This also increase the difficulty of verification because every island needs its timing and power specifications. needs more IO pins and more complex power grid.   
-![Asset 2-100](https://user-images.githubusercontent.com/43087648/215612483-5e3ef064-96a8-4247-8c65-57a46a09fce7.jpg)
+3. **Power islands:** partition the design to power islands depends on the performance requirement of each partition. this can significantly reduce the power consumption of non-critical modules. This needs to level shifters to shift up or shift down the shared signals to pass the noise range to avoid the short circuit current flow. This also increase the difficulty of verification because every island needs its timing and power specifications. needs more IO pins and more complex power grid.
+<p align="center">
+  <img width="340" height="130" src="https://user-images.githubusercontent.com/43087648/215612483-5e3ef064-96a8-4247-8c65-57a46a09fce7.jpg">
+</p>   
 
 
 4. **Using shifters instead of multiplier:** multipliers are built with XOR gates which is power hungry gates. therefore, using shifters in constant multiplications can save power.
-5. **Operand isolation:** switching on adders' inputs can lead to unneeded intermediate results which increase the switching power consumption. the reason of that is not all bits reach to the adder circuit in same time. therefore, registering the inputs will decrease the switching power but be note this will increase the latency.  
-![Asset 3-100](https://user-images.githubusercontent.com/43087648/215612568-37713560-0d45-490c-988c-3038efec3052.jpg)
+5. **Operand isolation:** switching on adders' inputs can lead to unneeded intermediate results which increase the switching power consumption. the reason of that is not all bits reach to the adder circuit in same time. therefore, registering the inputs will decrease the switching power but be note this will increase the latency.
+<p align="center">
+  <img width="500" height="100" src="https://user-images.githubusercontent.com/43087648/215612568-37713560-0d45-490c-988c-3038efec3052.jpg">
+</p>    
 
 6. **Clock gating:** even if input to D-FF not changing still the switching on CLK input for the FF will consume power in the internal circuit of the FF. the closer the CLK gating circuit to the CLK source the more power saving done. because the most of dynamic power is dissipated in the high drive strength buffers in the CLK tree and have the most toggling rate. CLK gating circuit adds more area and power consumption of the latch and the and gate therefore it must be used only when enable circuit is expected to be low must of time. 
-![Asset 4-100](https://user-images.githubusercontent.com/43087648/215612624-ed656db1-fcb5-45df-9c31-b3b7083cfcbb.jpg)
-
-![Asset 5-100](https://user-images.githubusercontent.com/43087648/215612677-6a3129b6-6784-49d6-b312-c1165f8b55e5.jpg)
+<p align="center">
+  <img width="300" height="150" src="https://user-images.githubusercontent.com/43087648/215612624-ed656db1-fcb5-45df-9c31-b3b7083cfcbb.jpg">
+</p>  
+<p align="center">
+  <img width="239" height="90" src="https://user-images.githubusercontent.com/43087648/215612677-6a3129b6-6784-49d6-b312-c1165f8b55e5.jpg">
+</p>  
 
 7. **Reducing VDD:** reducing VDD is powerful method because voltage is dominated in power formula. but decreasing the VDD will degrade the performance because it increases the gate delays. then it should be not used in critical paths circuits. also decreasing the voltage source needs to decreasing Vth which increasing the leakage power. this method is only effective when large voltage headroom.
 8. **Power gating:** the most effective method to reduce the leakage power is selective shutdown for the unneeded modules. 
-
-
-![Asset 6-100](https://user-images.githubusercontent.com/43087648/215612725-b437bf90-1020-4921-893a-57f188c5cd17.jpg)
+<p align="center">
+  <img width="100" height="200" src="https://user-images.githubusercontent.com/43087648/215612725-b437bf90-1020-4921-893a-57f188c5cd17.jpg">
+</p>  
 
 it requires isolation cells between different power domains to avoid floating inputs for the next modules when power domain is OFF. PEn signal should be generated from always on circuit.
 
@@ -84,5 +97,5 @@ it needs to sleep and wake-up in correct sequence therefore to power OFF sequenc
 
 
 ## References:
- - Principles of VLSI RTL Design 
- - The Art of Hardware Architecture 
+ - Principles of VLSI RTL Design by Sanjay Churiwala and Sapan Garg
+ - The Art of Hardware Architecture by Mohit Arora
